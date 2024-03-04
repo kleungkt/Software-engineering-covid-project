@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.CheckListView?>
+
+<VBox prefHeight="679.0" prefWidth="719.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comp3111.covid.Controller">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="701.0" prefWidth="719.0">
+      <children>
+            <TabPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="488.0" prefWidth="719.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab fx:id="tabTaskZero" text="Task Zero">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="221.0" prefWidth="719.0">
+                           <children>
+                              <Label layoutX="114.0" layoutY="68.0" prefHeight="18.0" prefWidth="58.0" text="ISO Code" />
+                              <TextField fx:id="textfieldISO" layoutX="185.0" layoutY="64.0" prefHeight="26.0" prefWidth="43.0" promptText="e.g 1830 (18: yr 18-19; 30: Spring)" text="HKG" />
+                              <Button fx:id="buttonConfirmedDeaths" layoutX="303.0" layoutY="134.0" mnemonicParsing="false" onAction="#doConfirmedDeaths" text="Confirmed Deaths" />
+                              <Label layoutX="114.0" layoutY="36.0" text="Dataset" />
+                              <TextField fx:id="textfieldDataset" layoutX="185.0" layoutY="32.0" prefHeight="26.0" prefWidth="149.0" text="COVID_Dataset_v1.0.csv" />
+                              <Label layoutX="114.0" layoutY="138.0" text="Report" />
+                              <Button fx:id="buttonRateOfVaccination" layoutX="423.0" layoutY="134.0" mnemonicParsing="false" onAction="#doRateOfVaccination" text="Rate of Vaccination" />
+                              <Button fx:id="buttonConfirmedCases" layoutX="185.0" layoutY="134.0" mnemonicParsing="false" onAction="#doConfirmedCases" text="Confirmed Cases" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab fx:id="tabReport1" text="Table A">
+                    <content>
+                      <AnchorPane fx:id="A1checkbox" minHeight="0.0" minWidth="0.0" prefHeight="384.0" prefWidth="719.0">
+                           <children>
+                              <Label layoutX="14.0" layoutY="253.0" text="Date:" />
+                              <TableView id="A1DisplayTable" fx:id="A1DisplayTable" layoutX="310.0" layoutY="37.0" prefHeight="266.0" prefWidth="400.0">
+                                <columns>
+                                  <TableColumn fx:id="A1DisplayCountryCol" prefWidth="99.0" text="Country/Area" />
+                                  <TableColumn fx:id="A1DisplayTotal" prefWidth="112.0" text="Total Cases" />
+                                    <TableColumn fx:id="A1DisplayTotal1M" prefWidth="130.0" text="Total cases (Per 1M)" />
+                                </columns>
+                              </TableView>
+                              <DatePicker fx:id="A1Datepicker" layoutX="17.0" layoutY="278.0" />
+                              <Button fx:id="A1SearchButton" layoutX="239.0" layoutY="278.0" mnemonicParsing="false" onAction="#doA1Search" text="Search" />
+                              <Label fx:id="A1title" layoutX="310.0" layoutY="6.0" prefHeight="25.0" prefWidth="399.0" text="Title" textAlignment="CENTER" />
+                              <Label layoutX="17.0" layoutY="10.0" prefHeight="17.0" prefWidth="215.0" text="Select Country or Area" />
+                              <CheckListView fx:id="A1CheckList" layoutX="12.0" layoutY="37.0" prefHeight="213.0" prefWidth="290.0" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                <Tab fx:id="tabReport2" text="Table B">
+                  <content>
+                        <AnchorPane fx:id="B1checkbox" minHeight="0.0" minWidth="0.0" prefHeight="384.0" prefWidth="719.0">
+                           <children>
+                              <Label layoutX="14.0" layoutY="253.0" text="Date:" />
+                              <TableView id="B1DisplayTable" fx:id="B1DisplayTable" layoutX="310.0" layoutY="37.0" prefHeight="266.0" prefWidth="400.0">
+                                <columns>
+                                  <TableColumn fx:id="B1DisplayCountryCol" prefWidth="99.0" text="Country/Area" />
+                                  <TableColumn fx:id="B1DisplayTotal" prefWidth="112.0" text="Total Deaths" />
+                                    <TableColumn fx:id="B1DisplayTotal1M" prefWidth="130.0" text="Total deaths (Per 1M)" />
+                                </columns>
+                              </TableView>
+                              <DatePicker fx:id="B1Datepicker" layoutX="17.0" layoutY="278.0" />
+                              <Button fx:id="B1SearchButton" layoutX="239.0" layoutY="278.0" mnemonicParsing="false" onAction="#doB1Search" text="Search" />
+                              <Label fx:id="B1title" layoutX="310.0" layoutY="6.0" prefHeight="25.0" prefWidth="399.0" text="Title" textAlignment="CENTER" />
+                              <Label layoutX="17.0" layoutY="10.0" prefHeight="17.0" prefWidth="215.0" text="Select Country or Area" />
+                              <CheckListView fx:id="B1CheckList" layoutX="12.0" layoutY="37.0" prefHeight="213.0" prefWidth="290.0" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab fx:id="tabReport3" text="Table C">
+                  <content>
+                        <AnchorPane fx:id="C1checkbox" minHeight="0.0" minWidth="0.0" prefHeight="384.0" prefWidth="719.0">
+                           <children>
+                              <Label layoutX="14.0" layoutY="253.0" text="Date:" />
+                              <TableView id="C1DisplayTable" fx:id="C1DisplayTable" layoutX="310.0" layoutY="37.0" prefHeight="266.0" prefWidth="400.0">
+                                <columns>
+                                  <TableColumn fx:id="C1DisplayCountryCol" prefWidth="99.0" text="Country/Area" />
+                                  <TableColumn fx:id="C1DisplayVacNum" prefWidth="112.0" text="Fully Vaccinated" />
+                                    <TableColumn fx:id="C1DisplayVacRate" prefWidth="130.0" text="Rate of Vaccination" />
+                                </columns>
+                              </TableView>
+                              <DatePicker fx:id="C1Datepicker" layoutX="17.0" layoutY="278.0" />
+                              <Button fx:id="C1SearchButton" layoutX="239.0" layoutY="278.0" mnemonicParsing="false" onAction="#doC1Search" text="Search" />
+                              <Label fx:id="C1title" layoutX="310.0" layoutY="6.0" prefHeight="25.0" prefWidth="399.0" text="Title" textAlignment="CENTER" />
+                              <Label layoutX="17.0" layoutY="10.0" prefHeight="17.0" prefWidth="215.0" text="Select Country or Area" />
+                              <CheckListView fx:id="C1CheckList" layoutX="12.0" layoutY="37.0" prefHeight="213.0" prefWidth="290.0" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab fx:id="tabApp1" text="Chart A">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="406.0" prefWidth="719.0">
+                           <children>
+                               <Label layoutX="14.0" layoutY="253.0" text="Start" />
+                               <DatePicker fx:id="A2StartDate" layoutX="12.0" layoutY="278.0" />
+                               <Label fx:id="A2title" layoutX="285.0" layoutY="6.0" prefHeight="25.0" prefWidth="399.0" text="Title" textAlignment="CENTER" />
+                               <Label layoutX="17.0" layoutY="10.0" prefHeight="17.0" prefWidth="215.0" text="Select Country or Area" />
+                               <CheckListView fx:id="A2CheckList" layoutX="12.0" layoutY="37.0" prefHeight="213.0" prefWidth="192.0" />
+                              <LineChart fx:id="A2Chart" createSymbols="false" layoutX="222.0" layoutY="31.0" prefHeight="414.0" prefWidth="483.0">
+                                <xAxis>
+                                  <NumberAxis fx:id="A2xAxis" side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis fx:id="A2yAxis" side="LEFT" />
+                                </yAxis>
+                              </LineChart>
+                               <Button fx:id="A2SearchButton" layoutX="13.0" layoutY="371.0" mnemonicParsing="false" onAction="#doA2Search" text="Search" />
+                              <DatePicker fx:id="A2EndDate" layoutX="12.0" layoutY="335.0" />
+                              <Label layoutX="14.0" layoutY="311.0" text="End" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab fx:id="tabApp2" text="Chart B">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="406.0" prefWidth="719.0">
+                           <children>
+                               <Label layoutX="14.0" layoutY="253.0" text="Start" />
+                               <DatePicker fx:id="B2StartDate" layoutX="12.0" layoutY="278.0" />
+                               <Label fx:id="B2title" layoutX="285.0" layoutY="6.0" prefHeight="25.0" prefWidth="399.0" text="Title" textAlignment="CENTER" />
+                               <Label layoutX="17.0" layoutY="10.0" prefHeight="17.0" prefWidth="215.0" text="Select Country or Area" />
+                               <CheckListView fx:id="B2CheckList" layoutX="12.0" layoutY="37.0" prefHeight="213.0" prefWidth="192.0" />
+                              <LineChart fx:id="B2Chart" createSymbols="false" layoutX="222.0" layoutY="31.0" prefHeight="414.0" prefWidth="483.0">
+                                <xAxis>
+                                  <NumberAxis fx:id="B2xAxis" side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis fx:id="B2yAxis" side="LEFT" />
+                                </yAxis>
+                              </LineChart>
+                               <Button fx:id="B2SearchButton" layoutX="13.0" layoutY="371.0" mnemonicParsing="false" onAction="#doB2Search" text="Search" />
+                              <DatePicker fx:id="B2EndDate" layoutX="12.0" layoutY="335.0" />
+                              <Label layoutX="14.0" layoutY="311.0" text="End" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab fx:id="tabApp3" text="Chart C">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="406.0" prefWidth="719.0">
+                           <children>
+                               <Label layoutX="14.0" layoutY="253.0" text="Start" />
+                               <DatePicker fx:id="C2StartDate" layoutX="12.0" layoutY="278.0" />
+                               <Label fx:id="C2title" layoutX="285.0" layoutY="6.0" prefHeight="25.0" prefWidth="399.0" text="Title" textAlignment="CENTER" />
+                               <Label layoutX="17.0" layoutY="10.0" prefHeight="17.0" prefWidth="215.0" text="Select Country or Area" />
+                               <CheckListView fx:id="C2CheckList" layoutX="12.0" layoutY="37.0" prefHeight="213.0" prefWidth="192.0" />
+                              <LineChart fx:id="C2Chart" createSymbols="false" layoutX="222.0" layoutY="31.0" prefHeight="414.0" prefWidth="483.0">
+                                <xAxis>
+                                  <NumberAxis fx:id="C2xAxis" side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis fx:id="C2yAxis" side="LEFT" />
+                                </yAxis>
+                              </LineChart>
+                               <Button fx:id="C2SearchButton" layoutX="13.0" layoutY="371.0" mnemonicParsing="false" onAction="#doC2Search" text="Search" />
+                              <DatePicker fx:id="C2EndDate" layoutX="12.0" layoutY="335.0" />
+                              <Label layoutX="14.0" layoutY="311.0" text="End" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab fx:id="tabBonus1" text="Report A">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="406.0" prefWidth="719.0">
+                           <children>
+                              <Pane fx:id="A3DrawingArea" layoutX="-7.0" layoutY="26.0" prefHeight="366.0" prefWidth="685.0" />
+                              <DatePicker fx:id="A3DatePick" disable="true" layoutX="479.0" layoutY="421.0" prefHeight="26.0" prefWidth="125.0" />
+                              <Button fx:id="A3Generate" disable="true" layoutX="611.0" layoutY="421.0" mnemonicParsing="false" onAction="#doA3Generate" prefHeight="26.0" prefWidth="94.0" text="Generate" />
+                              <Button fx:id="A3LoadButton" layoutX="25.0" layoutY="421.0" mnemonicParsing="false" onAction="#doA3LoadAll" prefHeight="26.0" prefWidth="148.0" text="Load All Country" />
+                              <Slider fx:id="A3TopCountrySlider" disable="true" layoutX="287.0" layoutY="418.0" majorTickUnit="10.0" min="1.0" minorTickCount="5" prefHeight="16.0" prefWidth="184.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                              <Label layoutX="287.0" layoutY="391.0" text="Top country numbers" />
+                              <Label layoutX="479.0" layoutY="391.0" text="Date Input" />
+                              <Label layoutX="25.0" layoutY="400.0" prefHeight="17.0" prefWidth="149.0" text="Take ~50s to load" />
+                              <Label fx:id="A3Title" alignment="CENTER" layoutX="99.0" prefHeight="24.0" prefWidth="521.0" text="Title" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                           </children></AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab fx:id="tabBonus2" text="Report B">
+                    <content>
+                      <AnchorPane fx:id="B3MasterPane" minHeight="0.0" minWidth="0.0" prefHeight="406.0" prefWidth="719.0">
+                           <children>
+                               <Label layoutX="17.0" layoutY="10.0" prefHeight="17.0" prefWidth="215.0" text="Select Predictors to Analyse" />
+                               <CheckListView fx:id="B3CheckList" layoutX="12.0" layoutY="37.0" prefHeight="159.0" prefWidth="274.0" />
+                               <Button fx:id="B3GenerateReportButton" layoutX="102.0" layoutY="216.0" mnemonicParsing="false" onAction="#doTaskB3" text="Generate Report" />
+                               <Button fx:id="B3ResidualPlotButton" layoutX="162.0" layoutY="314.0" mnemonicParsing="false" onAction="#generateB3ResidualPlot" prefHeight="25.0" prefWidth="114.0" text="Residual Plot" />
+                               <Button fx:id="B3LinearRegressionOutputButton" layoutX="17.0" layoutY="314.0" mnemonicParsing="false" onAction="#generateB3LinearReg" prefHeight="25.0" prefWidth="133.0" text="Regression Output" />
+                               <Button fx:id="B3CorrelationMatrixButton" layoutX="162.0" layoutY="347.0" mnemonicParsing="false" onAction="#generateB3CorrMatrix" text="Correlation Matrix" />
+                               <Button fx:id="B3MulticollinearityButton" layoutX="17.0" layoutY="347.0" mnemonicParsing="false" onAction="#generateB3Collinearity" prefHeight="25.0" prefWidth="132.0" text="Collinearity Analysis" />
+                              <Pane fx:id="B3RegressionPane" layoutX="290.0" layoutY="35.0" prefHeight="370.0" prefWidth="370.0" />
+                              <Pane fx:id="B3ResidualPane" layoutX="290.0" layoutY="35.0" prefHeight="370.0" prefWidth="370.0" />
+                              <Pane fx:id="B3MulticollinearityPane" layoutX="290.0" layoutY="35.0" prefHeight="370.0" prefWidth="370.0" />
+                              <Pane fx:id="B3CorrelationPane" layoutX="290.0" layoutY="35.0" prefHeight="370.0" prefWidth="370.0" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab fx:id="tabBonus3" text="Report C">
+                    <content>
+                        <AnchorPane fx:id="C3MasterPane" maxHeight="449.0" maxWidth="719.0" prefHeight="449.0" prefWidth="719.0">
+                            <DatePicker fx:id="C3Datepicker" layoutX="156.0" layoutY="38.0" />
+                            <Label fx:id="C3title" layoutX="160.0" layoutY="14.0" prefHeight="25.0" prefWidth="500.0" text="Title" textAlignment="CENTER" />
+                            <Button fx:id="C3SearchButton" layoutX="388.0" layoutY="39.0" mnemonicParsing="false" onAction="#doC3Search" />
+                            <AnchorPane fx:id="C3WorldMapPane" layoutY="63.0" maxHeight="388.0" maxWidth="719.0" minHeight="0.0" minWidth="0.0" prefHeight="388.0" prefWidth="719.0">
+                                <children>
+                                    <Label fx:id="C3ColorScaleNoData" layoutX="25.0" layoutY="0.0" prefHeight="25.0" prefWidth="60.0" text="Prompt" textAlignment="CENTER" textFill="#FFFFFF"/>
+                                    <Label fx:id="C3ColorScale1" layoutX="25.0" layoutY="72.5" prefHeight="25.0" prefWidth="55.0" text="Prompt" textAlignment="CENTER" textFill="#FFFFFF"/>
+                                    <Label fx:id="C3ColorScale2" layoutX="25.0" layoutY="135.0" prefHeight="25.0" prefWidth="55.0" text="Prompt" textAlignment="CENTER" textFill="#FFFFFF"/>
+                                    <Label fx:id="C3ColorScale3" layoutX="25.0" layoutY="197.5" prefHeight="25.0" prefWidth="55.0" text="Prompt" textAlignment="CENTER" textFill="#FFFFFF"/>
+                                    <Label fx:id="C3ColorScale4" layoutX="25.0" layoutY="260.0" prefHeight="25.0" prefWidth="55.0" text="Prompt" textAlignment="CENTER" textFill="#FFFFFF"/>
+                                    <Label fx:id="C3ColorScale5" layoutX="25.0" layoutY="317.5" prefHeight="25.0" prefWidth="55.0" text="Prompt" textAlignment="CENTER" textFill="#FFFFFF"/>
+                                    <Label fx:id="C3ColorScale0" layoutX="25.0" layoutY="20.0" prefHeight="25.0" prefWidth="55.0" text="Prompt" textAlignment="CENTER" textFill="#FFFFFF"/>
+                                    <Label fx:id="C3ColorScale6" layoutX="25.0" layoutY="368.0" prefHeight="25.0" prefWidth="55.0" text="Prompt" textAlignment="CENTER" textFill="#FFFFFF"/>
+                                    <Label fx:id="C3FirstTimeText" layoutX="80.0" layoutY="0.0" prefHeight="55.0" prefWidth="700.0" textAlignment="CENTER" textFill="#FFFFFF" text="testttttttt"/>
+                                    <ImageView fx:id="C3ColorScale" fitHeight="380.0" fitWidth="5.0" layoutX="14.0" layoutY="10.0">
+                                        <image>
+                                            <Image url="@colorscale.jpeg" />
+                                        </image>
+                                    </ImageView>
+                                    </children>
+                            </AnchorPane>
+                           <Label fx:id="C3prompt" layoutX="50.0" layoutY="39.0" prefHeight="25.0" prefWidth="142.0" text="Prompt" textAlignment="CENTER" />
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+      </children>
+    </AnchorPane>
+      <Label text="Console" />
+      <ScrollPane prefHeight="387.0" prefWidth="719.0">
+         <content>
+            <TextArea fx:id="textAreaConsole" editable="false" prefHeight="300.0" prefWidth="718.0" />
+         </content>
+      </ScrollPane>
+  </children>
+</VBox>
